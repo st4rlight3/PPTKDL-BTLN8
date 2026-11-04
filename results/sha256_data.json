@@ -1,0 +1,9 @@
+{
+  "data/pooled_ranks.csv": "32da3e3d152a6c9c6004c336c7f513dcba59458d86d60cdee3b61f005d9e3654",
+  "data/sample_detail.csv": "f6c7b65c7581ee2b96bc927a43971a71b97f62e3f4b78eb224cc2cab629dc5ea",
+  "data/simulation_200_raw.csv": "6085fe90335f0c76eb3bebbba0714ec8708a9de2b5b25b6268613b259ce4a3e8",
+  "results/descriptive.csv": "1ee6037503627903a69d2366461cf85315bf78b7a7df9f20e212957c2d969e3f",
+  "results/detail_tests.csv": "81bb9f2681e52d9666845b496adcf1415670b56d6dc18ea6f649988a8c354838",
+  "results/simulation_200.csv": "73abcf966aef17184a1ab11d28285a1b304431d1c0ab1a57ef709f84ac812f5b",
+  "results/simulation_summary.csv": "832056a7a8f3df3f2c042b88dd12ec29258d62865f9586a47c074098e4001120"
+}
