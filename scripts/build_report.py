@@ -1,6 +1,6 @@
 """Tạo báo cáo Word từ các CSV/JSON đã tính. Chạy từ bất kỳ thư mục nào."""
 from pathlib import Path
-import json, csv
+import json, csv, re
 from docx import Document
 from docx.shared import Inches, Pt, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 S = json.loads((ROOT/'results/summary.json').read_text(encoding='utf-8'))
 T = S['detail_tests']; A,B = S['descriptive']; MC=S['simulation_summary']
 MEMBERS = [('Phạm Gia Minh','B24DCKD057'),('Phương Bảo Vỹ','B24DCKD105'),
- ('Nguyễn Đức Thành','B24DCKD085'),('Nguyễn Mạnh Duy','B24DCKD024'),
+ ('Nguyễn Đức Thành','B24DCKD085'),('Phan Nguyễn Trung Khánh','B24DCKD041'),
  ('Phùng Quốc Khánh Nam','B24DCKD059')]
 TASKS = ['Thiết kế mô phỏng và quản lý dữ liệu gốc',
  'Lập trình Mann–Whitney và kiểm tra bảng hạng',
@@ -22,6 +22,8 @@ TASKS = ['Thiết kế mô phỏng và quản lý dữ liệu gốc',
 def f(x,d=3): return f'{x:.{d}f}'.replace('.',',')
 def pc(x,d=1): return f(100*x,d)+'%'
 doc=Document(); sec=doc.sections[0]
+for border in doc.styles.element.xpath('.//w:pBdr'):
+ border.getparent().remove(border)
 sec.page_width=Inches(8.5);sec.page_height=Inches(11)
 sec.top_margin=Inches(.77);sec.bottom_margin=Inches(.72)
 sec.left_margin=Inches(.88);sec.right_margin=Inches(.78)
@@ -29,6 +31,8 @@ sec.header_distance=Inches(.3);sec.footer_distance=Inches(.3)
 for sn in ['Normal','Title','Subtitle','Heading 1','Heading 2','Caption']:
  st=doc.styles[sn];st.font.name='Times New Roman';st.font.color.rgb=RGBColor(0,0,0)
  st._element.get_or_add_rPr().rFonts.set(qn('w:eastAsia'),'Times New Roman')
+ for key in ['w:asciiTheme','w:hAnsiTheme','w:eastAsiaTheme','w:cstheme']:
+  st._element.get_or_add_rPr().rFonts.attrib.pop(qn(key),None)
 normal=doc.styles['Normal'];normal.font.size=Pt(12)
 normal.paragraph_format.line_spacing=1.14
 normal.paragraph_format.space_after=Pt(7)
@@ -49,15 +53,23 @@ doc.core_properties.author='Nhóm 8'
 doc.core_properties.subject='Bài tập lớn Phương pháp thống kê dữ liệu'
 
 def p(text='',bold=False,align=None,size=None):
- x=doc.add_paragraph();r=x.add_run(text);r.bold=bold
+ x=doc.add_paragraph()
+ chunks=re.split(r'([FRUnσμ]_[ABU])',text)
+ for chunk in chunks:
+  if re.fullmatch(r'[FRUnσμ]_[ABU]',chunk or ''):
+   r=x.add_run(chunk[0]);r.bold=bold
+   r=x.add_run(chunk[2]);r.bold=bold;r.font.subscript=True
+  else:r=x.add_run(chunk);r.bold=bold
+  if size:r.font.size=Pt(size)
  if align is not None:x.alignment=align
- if size:r.font.size=Pt(size)
  return x
 def h(text):doc.add_heading(text,1)
 def h2(text):doc.add_heading(text,2)
 def page():doc.add_page_break()
 def table(headers,rows,widths=None,size=10.5):
  t=doc.add_table(rows=1, cols=len(headers));t.alignment=WD_TABLE_ALIGNMENT.CENTER;t.autofit=False
+ if widths:
+  for col,width in zip(t.columns,widths):col.width=Inches(width)
  for i,v in enumerate(headers):t.rows[0].cells[i].text=str(v)
  for row in rows:
   for i,v in enumerate(row):
@@ -92,16 +104,36 @@ def fig(name,caption,width=6.5):
  x=doc.add_paragraph(caption,style='Caption');x.alignment=WD_ALIGN_PARAGRAPH.CENTER
 def mr(txt):
  x=OxmlElement('m:r');t=OxmlElement('m:t');t.text=txt;x.append(t);return x
+def math_items(text):
+ parts=re.split(r'([A-Za-zσμ]+_[ABU]|θ̂|X̄|Ȳ)',text)
+ out=[]
+ for part in parts:
+  if not part:continue
+  if re.fullmatch(r'[A-Za-zσμ]+_[ABU]',part):
+   base,idx=part.split('_');node=OxmlElement('m:sSub')
+   e=OxmlElement('m:e');e.append(mr(base));node.append(e)
+   sub=OxmlElement('m:sub');sub.append(mr(idx));node.append(sub);out.append(node)
+  elif part in ['θ̂','X̄','Ȳ']:
+   node=OxmlElement('m:acc');pr=OxmlElement('m:accPr');ch=OxmlElement('m:chr')
+   ch.set(qn('m:val'),'̂' if part=='θ̂' else '̅');pr.append(ch);node.append(pr)
+   e=OxmlElement('m:e');e.append(mr('θ' if part=='θ̂' else ('X' if part=='X̄' else 'Y')));node.append(e);out.append(node)
+  else:out.append(mr(part))
+ return out
 def frac(num,den):
  x=OxmlElement('m:f')
  for tag,value in [('num',num),('den',den)]:
-  e=OxmlElement('m:'+tag);e.append(mr(value));x.append(e)
+  e=OxmlElement('m:'+tag)
+  for n in math_items(value):e.append(n)
+  x.append(e)
  return x
 def eq(*nodes):
  x=doc.add_paragraph();x.alignment=WD_ALIGN_PARAGRAPH.CENTER
  x.paragraph_format.space_after=Pt(8)
  m=OxmlElement('m:oMath')
- for n in nodes:m.append(mr(n) if isinstance(n,str) else n)
+ for n in nodes:
+  if isinstance(n,str):
+   for part in math_items(n):m.append(part)
+  else:m.append(n)
  x._p.append(m);return x
 
 # Trang 1
@@ -194,7 +226,7 @@ p('p = 0,292037 > 0,05 nên chưa bác bỏ H₀. Mẫu này chưa cho đủ b�
 page();h('6 Minh họa xếp hạng và mức ảnh hưởng')
 p('Bảng 1 trích các vị trí quanh nơi hai nhóm bắt đầu xen kẽ trong mẫu gộp. Bảng pooled_ranks.csv kèm bài có đủ 80 quan sát, giá trị chưa làm tròn và hạng. Các thống kê kiểm định dùng toàn bộ 80 quan sát, không dùng riêng phần minh họa.')
 ranks=list(csv.DictReader((ROOT/'data/pooled_ranks.csv').open(encoding='utf-8-sig')))
-selected=ranks[10:22]
+selected=ranks[12:22]
 table(['Thứ tự','Mã phiên','Nhóm','Độ trễ (ms)','Hạng'],[
  (r['sorted_order'],r['observation_id'],r['group'],f(float(r['latency_ms']),6),f(float(r['rank']),1)) for r in selected],[.75,1.2,.7,2.3,1.65],10.7)
 p('Ví dụ riêng về hạng trùng: nếu ba giá trị tăng dần là 21, 21, 23 ms thì hai giá trị 21 nhận hạng (1 + 2)/2 = 1,5 và 23 nhận hạng 3. Ví dụ này chỉ giải thích quy tắc, không được thêm vào dữ liệu mô phỏng.')
@@ -285,6 +317,9 @@ refs=[
 for text in refs:p(text,size=10)
 p('Các tài liệu trực tuyến được đối chiếu ngày 04/11/2026. Phiên bản thư viện thực sự đã chạy được ghi ở mục 10 và tệp summary.json.',size=10)
 out=ROOT/'bao_cao/Bao_cao_De_8_Nhom_8.docx';out.parent.mkdir(parents=True,exist_ok=True)
+for paragraph in list(doc.paragraphs)+[p for t in doc.tables for row in t.rows for c in row.cells for p in c.paragraphs]:
+ for run in paragraph.runs:
+  if '–' in run.text or '—' in run.text:run.text=run.text.replace('–','-').replace('—','-')
 doc.save(out)
 contrib=ROOT/'phan_cong.csv'
 with contrib.open('w',encoding='utf-8-sig',newline='') as fp:
