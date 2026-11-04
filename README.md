@@ -4,6 +4,12 @@ Nhóm 8. Kho mã của nhóm: `PPTKDL-BTLN8`.
 
 Toàn bộ số liệu là **dữ liệu mô phỏng**, không phải độ trễ đo trên mạng thật.
 
+## Mở nhanh tệp nộp
+
+- [Báo cáo PDF 12 trang](bao_cao/Bao_cao_De_8_Nhom_8.pdf) và [bản Word chỉnh sửa](bao_cao/Bao_cao_De_8_Nhom_8.docx).
+- [Bài trình chiếu 10 trang](trinh_chieu/Bai_trinh_chieu_De_8_Nhom_8.pptx).
+- [Bảng đối chiếu đầy đủ yêu cầu](DOI_CHIEU_YEU_CAU.md) và [phân công dự kiến](phan_cong.csv).
+
 ## Thiết kế và seed
 
 - Mỗi mẫu gồm hai nhóm độc lập: A có 40 phiên với `20 + Exponential(scale=10)`; B có 40 phiên với `16 + Exponential(scale=10)`. Đơn vị: ms.
@@ -74,7 +80,7 @@ Học viện Công nghệ Bưu chính Viễn thông, Khoa Viễn thông 1. Giả
 | Phạm Gia Minh | B24DCKD057 |
 | Phương Bảo Vỹ | B24DCKD105 |
 | Nguyễn Đức Thành | B24DCKD085 |
-| Nguyễn Mạnh Duy | B24DCKD024 |
+| Phan Nguyễn Trung Khánh | B24DCKD041 |
 | Phùng Quốc Khánh Nam | B24DCKD059 |
 
 - `bao_cao/Bao_cao_De_8_Nhom_8.pdf`: báo cáo 12 trang để đọc và in.
