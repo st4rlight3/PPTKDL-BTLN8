@@ -1,3 +1,3 @@
-test,replications,detected,detection_rate,monte_carlo_se,wilson_ci95_low,wilson_ci95_high
+﻿test,replications,detected,detection_rate,monte_carlo_se,wilson_ci95_low,wilson_ci95_high
 Mann-Whitney,200,153,0.76500000000000001,0.029981244136960027,0.70158631117237458,0.81842566584767407
 Welch,200,99,0.495,0.035353571248178027,0.42645845359904749,0.56372999966472515
