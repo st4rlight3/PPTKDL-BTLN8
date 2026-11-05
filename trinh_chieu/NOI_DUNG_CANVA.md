@@ -1,294 +1,361 @@
-# Nội dung Canva cho đề 8 nhóm 8
+# Nội dung Canva đề 8 nhóm 8
 
-Đây là nội dung hoàn chỉnh cho bài trình chiếu Canva gồm đúng **10 trang**, bao gồm bìa. Dữ liệu thống kê giữ nguyên từ phân tích seed **20261104**. Tất cả là **dữ liệu mô phỏng**, không phải số đo mạng thực tế. Điểm cần giữ rõ: **mẫu chi tiết chưa phát hiện khác biệt** bằng cả Mann–Whitney và Welch; **B thấp hơn 4 ms là đặc điểm của mô hình tạo dữ liệu**.
+Bản thiết kế mới theo Taste Skill adaptation. Khổ 1600 × 900, 10 trang. Nền ivory `#F4F3EE`, near-black `#172326`, cobalt `#1946D2`, burnt orange `#D75D2A`. Heading Times New Roman, tracking 0. Body và toàn bộ số liệu Arial. Lề 80 px. Chỉ hai trang accent: trang 6 cobalt, trang 10 near-black. Không gradient, glow, nền mạng hay lưới card bo góc.
 
-## Hướng thiết kế
+Tất cả dữ liệu là mô phỏng, seed 20261104. Mẫu chi tiết chưa phát hiện khác biệt ở mức 5%. Mức 4 ms là đặc điểm của mô hình tạo dữ liệu, không phải ước lượng được thay vào kết quả mẫu.
 
-- Khổ trình chiếu 16:9.
-- Phong cách trực quan, hiện đại, sinh động theo chủ đề viễn thông.
-- Nền midnight navy, đường truyền sợi quang và nút mạng cyan/teal. Bìa sáng nổi bật hơn. Nền nội dung dịu để bảo đảm tương phản chữ.
-- Bảng màu: navy `#06152B`, chữ trắng `#F6FAFF`, chữ phụ `#B9CFE3`, cyan `#59D8F0`, teal `#27D5B2`.
-- Font Arial hoặc font sans có đầy đủ dấu tiếng Việt. Tiêu đề lớn, ít nhóm chữ, tránh các ô giao diện trang trí dày đặc.
-- Duy trì màu A cyan và B teal ở biểu đồ so sánh nhóm.
-- Giữ chữ, bảng và biểu đồ có thể chỉnh sửa trong Canva khi công cụ hỗ trợ. Không dùng số giả để tạo hình đẹp.
-- Ảnh nền có sẵn: `network_background.png` cho bìa và `network_background_quiet.png` cho các trang nội dung. Hai ảnh là minh họa AI, không phải số liệu hay ảnh đo mạng.
+Nguồn nhập chính: `deck-canva.html`, chỉ có HTML/CSS tĩnh. Bản `preview.html` là xem trước tương tác riêng, không dùng để nhập. `deck-canva-assets.zip` chứa đúng nguồn tĩnh dưới tên `index.html`; không cần ảnh nền hay tài nguyên mạng ngoài.
 
-## Tài liệu nguồn và dữ liệu chung
+## 01 So sánh hai phương án định tuyến
 
-- Đề bài: *Bộ đề bài tập nhóm Phương pháp thống kê dữ liệu sinh viên*, đề 8 trang 9, yêu cầu chung trang 1, sản phẩm nộp trang 12.
-- Mã phân tích `analysis.py`, dữ liệu `sample_detail.csv`, bảng hạng `pooled_ranks.csv`, kết quả `summary.json`, bảng lặp `simulation_200.csv`.
-- [SciPy Mann–Whitney](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html).
-- [SciPy Welch với ttest_ind](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html).
-- [NumPy SeedSequence và các luồng ngẫu nhiên](https://numpy.org/doc/stable/reference/random/parallel.html).
+**Bố cục:** Bìa chữ Times New Roman lớn trên nền ivory, 40 phiên A cobalt và 40 phiên B orange.
 
-Mỗi phần dưới gồm nội dung hiển thị, hướng bố cục và ghi chú thuyết trình. Giữ các ghi chú ở phần notes của Canva, không đưa toàn bộ ghi chú lên trang trình chiếu.
+**Chữ hiển thị**
 
-## Slide 1 So sánh hai phương án định tuyến bằng dữ liệu độ trễ
+- PHƯƠNG PHÁP THỐNG KÊ DỮ LIỆU
+- ĐỀ 8  /  NHÓM 8
+- So sánh hai / phương án định tuyến
+- Dữ liệu độ trễ mô phỏng
+- Mann–Whitney / và kiểm định t Welch
+- A
+- B
+- phiên truyền độc lập
+- Học viện Công nghệ Bưu chính Viễn thông / Khoa Viễn thông 1
+- Giảng viên Vũ Quang Minh
 
-**Bố cục:** Nền viễn thông nổi bật toàn khung. Tiêu đề trắng lớn ở bên trái, chi tiết sợi quang dồn dưới và bên phải.
-
-**Nội dung trên slide**
-
-HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG  
-KHOA VIỄN THÔNG 1
-
-**So sánh hai phương án định tuyến bằng dữ liệu độ trễ**
-
-Đề 8  
-Phương pháp thống kê dữ liệu  
-Nhóm 8  
-Giảng viên Vũ Quang Minh
-
-**Ghi chú thuyết trình**
+**Ghi chú thuyết trình và nguồn**
 
 Báo cáo bài tập nhóm về so sánh hai mẫu độ trễ độc lập. Toàn bộ dữ liệu là mô phỏng theo mô hình đề bài, không phải số đo mạng thực tế. Nhóm 8 gồm Phạm Gia Minh B24DCKD057, Phương Bảo Vỹ B24DCKD105, Nguyễn Đức Thành B24DCKD085, Phan Nguyễn Trung Khánh B24DCKD041 và Phùng Quốc Khánh Nam B24DCKD059. Kết luận được phân biệt giữa mẫu phân tích chi tiết và đặc điểm thật của mô hình tạo dữ liệu.
 
-## Slide 2 Thiết kế mô phỏng
+Nguồn bài toán: Bộ đề bài tập nhóm Phương pháp thống kê dữ liệu sinh viên, đề 8 trang 9, yêu cầu chung trang 1 và sản phẩm nộp trang 12.
 
-**Bố cục:** Công thức A và B lớn ở trái, số 200 lớn ở phải. Dùng nền viễn thông dịu sáng để bảo đảm tương phản chữ.
+Dữ liệu và kết quả: analysis.py, seed 20261104, sample_detail.csv, summary.json.
 
-**Nội dung trên slide**
+## 02 Hai mẫu độc lập
 
-Hai nhóm phiên truyền độc lập, mỗi nhóm 40 quan sát, đơn vị ms.
+**Bố cục:** Hai cột mở A và B, công thức Arial và đường kẻ màu. Seed, số lần lặp, mức ý nghĩa ở một hàng cuối.
 
-- A: X = 20 + Z
-- B: Y = 16 + Z′
-- Z và Z′ độc lập, phân phối mũ với trung bình 10 ms.
-- Seed: 20261104.
-- 200 lần sinh mẫu mới.
-- Mann–Whitney và Welch hai phía, α = 0,05.
-- Khoảng tin cậy 95%.
+**Chữ hiển thị**
 
-Lưu mẫu gốc, mã lệnh và kết quả để chạy lại.
+- PHƯƠNG PHÁP THỐNG KÊ DỮ LIỆU
+- THIẾT KẾ MÔ PHỎNG
+- Hai mẫu độc lập
+- Mỗi quan sát là một phiên truyền. Đơn vị độ trễ là ms.
+- PHƯƠNG ÁN A
+- PHƯƠNG ÁN B
+- X = 20 + Z
+- Y = 16 + Z′
+- 40 phiên
+- 40 phiên
+- Z và Z′ độc lập, cùng phân phối mũ với trung bình 10 ms.
+- Seed 20261104
+- 200 lần sinh mẫu mới
+- α = 0,05     KTC 95%
+- Dữ liệu mô phỏng. Seed 20261104.
 
-**Ghi chú thuyết trình**
+**Ghi chú thuyết trình và nguồn**
 
 Chọn seed cố định trước khi chạy, không đổi seed để tìm một mẫu có ý nghĩa thống kê. SeedSequence tách luồng cho mẫu chi tiết và 200 lần mô phỏng, mỗi lần sinh mới 40 giá trị A và 40 giá trị B. Không tái sử dụng mẫu chi tiết trong bảng tỷ lệ phát hiện. Tham số 20, 16 và 10 chỉ định nghĩa mô hình tạo dữ liệu. Các trung bình, phương sai và sai số chuẩn trong phân tích được tính từ từng mẫu. Hướng dẫn chạy cùng phiên bản thư viện nằm trong README và requirements.txt.
 
-**Nguồn phương pháp:** [numpy.org](https://numpy.org/doc/stable/reference/random/parallel.html).
+Nguồn bài toán: Bộ đề bài tập nhóm Phương pháp thống kê dữ liệu sinh viên, đề 8 trang 9, yêu cầu chung trang 1 và sản phẩm nộp trang 12.
 
-## Slide 3 Thống kê mô tả và histogram
+Dữ liệu và kết quả: analysis.py, seed 20261104, sample_detail.csv, summary.json.
 
-**Bố cục:** Bảng mô tả ở trái, histogram ở phải. Màu A cyan và B teal nhất quán.
+https://numpy.org/doc/stable/reference/random/parallel.html
 
-**Nội dung trên slide**
+## 03 Trung bình mẫu gần nhau
 
-Mẫu chi tiết có n = 40 mỗi nhóm. Histogram dùng cùng khoảng lớp.
+**Bố cục:** Bảng mô tả bên trái và histogram lớn bên phải, không khung card.
 
-| Đại lượng (ms) | A | B |
-|---|---:|---:|
-| Trung bình | 28,12 | 27,70 |
-| Trung vị | 23,91 | 23,69 |
-| Độ lệch chuẩn | 10,33 | 11,10 |
-| Q1 | 22,01 | 19,12 |
-| Q3 | 29,57 | 34,29 |
-| IQR | 7,56 | 15,17 |
+**Chữ hiển thị**
 
-Cả hai mẫu lệch phải. Trung bình lớn hơn trung vị.
+- PHƯƠNG PHÁP THỐNG KÊ DỮ LIỆU
+- MẪU PHÂN TÍCH CHI TIẾT
+- Trung bình mẫu gần nhau
+- Cả hai mẫu lệch phải. Mỗi phương án có 40 quan sát.
+- THỐNG KÊ  (ms)
+- A
+- B
+- Trung bình
+- 28,12
+- 27,70
+- Trung vị
+- 23,91
+- 23,69
+- Độ lệch chuẩn
+- 10,33
+- 11,10
+- Q1
+- 22,01
+- 19,12
+- Q3
+- 29,57
+- 34,29
+- IQR
+- 7,56
+- 15,17
+- TẦN SỐ
+- Độ trễ (ms)
+- 16–24
+- 24–32
+- 32–40
+- 40–48
+- 48–56
+- 56–64
+- 64–72
+- Độ lệch chuẩn mẫu dùng n−1. Q1 và Q3 theo nội suy tuyến tính.
 
-**Dữ liệu histogram**
+Dữ liệu histogram theo các lớp 16–24, 24–32, 32–40, 40–48, 48–56, 56–64, 64–72 ms. A: 20, 11, 3, 3, 2, 0, 1. B: 20, 8, 7, 1, 4, 0, 0. Mỗi nhóm tổng 40.
 
-| Khoảng lớp (ms) | Số phiên A | Số phiên B |
-|---|---:|---:|
-| [16, 24) | 20 | 20 |
-| [24, 32) | 11 | 8 |
-| [32, 40) | 3 | 7 |
-| [40, 48) | 3 | 1 |
-| [48, 56) | 2 | 4 |
-| [56, 64) | 0 | 0 |
-| [64, 72] | 1 | 0 |
-
-Trục ngang: Độ trễ (ms). Trục dọc: Số phiên, từ 0 đến 25. Cột ghép A/B, cùng bề rộng lớp 8 ms. Tổng mỗi nhóm 40.
-
-**Ghi chú thuyết trình**
+**Ghi chú thuyết trình và nguồn**
 
 Trung bình A 28,12 ms và B 27,70 ms gần nhau trong mẫu chi tiết này. Trung vị lần lượt 23,91 và 23,69 ms. Độ lệch chuẩn dùng mẫu số n−1. Q1 và Q3 dùng nội suy tuyến tính của NumPy, IQR bằng Q3−Q1. Histogram có bảy lớp chung bề rộng 8 ms, từ 16 đến 72 ms. Mỗi lớp đóng bên trái và mở bên phải, lớp cuối chứa cả cận phải. Hai phân phối có đuôi phải dài. IQR của B lớn hơn A trong mẫu không phủ định việc hai phân phối tạo dữ liệu có cùng dạng và độ phân tán thật.
 
-## Slide 4 Biểu đồ hộp của hai phương án
+Nguồn bài toán: Bộ đề bài tập nhóm Phương pháp thống kê dữ liệu sinh viên, đề 8 trang 9, yêu cầu chung trang 1 và sản phẩm nộp trang 12.
 
-**Bố cục:** Biểu đồ hộp lớn ở trái, diễn giải ngắn ở phải.
+Dữ liệu và kết quả: analysis.py, seed 20261104, sample_detail.csv, summary.json.
 
-**Nội dung trên slide**
+## 04 Độ phân tán trong mẫu
 
-Hộp từ Q1 đến Q3. Vạch giữa là trung vị. Râu theo quy tắc 1,5 IQR.
+**Bố cục:** Biểu đồ hộp rộng và IQR lớn theo màu nhóm.
 
-- A: IQR = 7,56 ms.
-- B: IQR = 15,17 ms.
-- Các giá trị ngoài râu vẫn là dữ liệu hợp lệ của phân phối mũ.
+**Chữ hiển thị**
 
-Giữ toàn bộ 80 quan sát khi kiểm định.
+- PHƯƠNG PHÁP THỐNG KÊ DỮ LIỆU
+- PHÂN PHỐI ĐỘ TRỄ
+- Độ phân tán trong mẫu
+- Giữ các giá trị ngoài râu khi kiểm định. Chúng thuộc mô hình mũ.
+- Độ trễ (ms)
+- A
+- B
+- IQR
+- 7,56
+- A  /  ms
+- 15,17
+- B  /  ms
+- Hộp: Q1 đến Q3. Vạch giữa: trung vị. Râu: quy tắc 1,5 IQR.
 
-Trục dọc: Độ trễ (ms), từ 10 đến 70. Trục ngang: hai phương án A và B. Không cắt mất các điểm ngoài râu.
+Hộp và râu tính từ toàn bộ `sample_detail.csv` cùng Q1/Q3 trong `summary.json`. Trục độ trễ 10–70 ms. A cobalt, B orange. Giữ toàn bộ các điểm ngoài râu.
 
-**Dữ liệu chính xác để dựng biểu đồ hộp**
-
-| Nhóm | Râu dưới | Q1 | Trung vị | Q3 | Râu trên |
-|---|---:|---:|---:|---:|---:|
-| A | 20.327426 | 22.012767 | 23.907064 | 29.574235 | 40.641566 |
-| B | 16.527658 | 19.123197 | 23.687746 | 34.289325 | 53.661804 |
-
-Các điểm ngoài râu (ms):
-
-- A: 41.178137, 43.713961, 49.015069, 55.594845, 66.029757.
-- B: không có.
-
-**Ghi chú thuyết trình**
+**Ghi chú thuyết trình và nguồn**
 
 Q1 và Q3 dùng cùng quy ước nội suy tuyến tính với thống kê mô tả. Râu dưới kéo đến quan sát nhỏ nhất còn trong khoảng Q1−1,5IQR. Râu trên kéo đến quan sát lớn nhất còn trong khoảng Q3+1,5IQR. Các điểm ngoài râu được thể hiện riêng. Các điểm lớn không tự động là lỗi nhập liệu, vì mô hình mũ tạo ra những độ trễ lớn với xác suất dương. Cần giữ các điểm này khi thực hiện cả hai kiểm định. Đuôi phải dài làm trung bình và kiểm định dựa trên trung bình nhạy hơn với giá trị lớn.
 
-## Slide 5 Mann–Whitney và cách xếp hạng
+Nguồn bài toán: Bộ đề bài tập nhóm Phương pháp thống kê dữ liệu sinh viên, đề 8 trang 9, yêu cầu chung trang 1 và sản phẩm nộp trang 12.
 
-**Bố cục:** Giả thuyết, cách làm và công thức ở trái. Bảng minh họa sáu hạng ở phải.
+Dữ liệu và kết quả: analysis.py, seed 20261104, sample_detail.csv, summary.json.
 
-**Nội dung trên slide**
+## 05 Xếp hạng 80 quan sát
 
-Kiểm định Mann–Whitney hai phía cho hai mẫu độc lập.
+**Bố cục:** Dải 80 marks xếp hạng và bảng minh họa sáu hạng.
 
-- H₀: Hai phân phối như nhau.
-- H₁: Hai phân phối khác nhau.
-- Gộp 80 giá trị rồi xếp tăng dần.
-- Hạng trùng nhận hạng trung bình.
-- Mẫu hiện tại không có hạng trùng.
+**Chữ hiển thị**
 
-U(A) = R(A) − 40 × 41 / 2.
+- PHƯƠNG PHÁP THỐNG KÊ DỮ LIỆU
+- MANN–WHITNEY
+- Xếp hạng 80 quan sát
+- Gộp hai mẫu, sắp tăng dần. Hạng trùng nhận hạng trung bình.
+- H₀  Cùng phân phối / H₁  Phân phối khác nhau
+- U(A) = R(A) − 40 × 41 / 2
+- R(A) = 1730     R(B) = 1510
+- Mã
+- Nhóm
+- ms
+- Hạng
+- B10
+- B
+- 19,943
+- B18
+- B
+- 20,040
+- B37
+- B
+- 20,190
+- A39
+- A
+- 20,327
+- A25
+- A
+- 20,341
+- A31
+- A
+- 20,639
+- Dải màu: A cobalt, B orange. Mẫu không có hạng trùng. Kiểm định dùng đủ 80 giá trị.
 
-| Mã | Nhóm | Độ trễ (ms) | Hạng |
-|---|:---:|---:|---:|
-| B10 | B | 19,943 | 13 |
-| B18 | B | 20,040 | 14 |
-| B37 | B | 20,190 | 15 |
-| A39 | A | 20,327 | 16 |
-| A25 | A | 20,341 | 17 |
-| A31 | A | 20,639 | 18 |
+Dải màu gồm đúng 80 marks đọc từ `pooled_ranks.csv`, theo thứ tự tăng dần. Bảng chỉ minh họa hạng 13–18.
 
-Bảng minh họa hạng 13 đến 18. Kiểm định dùng đủ 80 giá trị.
-
-**Ghi chú thuyết trình**
+**Ghi chú thuyết trình và nguồn**
 
 Giả thuyết không là hai phân phối tổng thể giống nhau. Đối thuyết hai phía là các phân phối khác nhau theo cách kiểm định Mann–Whitney phát hiện. Khi hai phân phối cùng dạng và chỉ khác vị trí, có thể diễn giải kết quả theo dịch chuyển vị trí. Mann–Whitney không mặc nhiên kiểm định sự bằng nhau của trung bình. Gộp toàn bộ 80 giá trị, xếp hạng tăng dần, tính tổng hạng của mỗi nhóm. Nếu trùng giá trị, dùng midrank và hiệu chỉnh phương sai theo số lượng phần tử của từng nhóm trùng. Bảng chỉ minh họa sáu hạng nối tiếp. Toàn bộ bảng 80 hạng nằm trong pooled_ranks.csv.
 
-**Nguồn phương pháp:** [docs.scipy.org](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html).
+Nguồn bài toán: Bộ đề bài tập nhóm Phương pháp thống kê dữ liệu sinh viên, đề 8 trang 9, yêu cầu chung trang 1 và sản phẩm nộp trang 12.
 
-## Slide 6 Kết quả Mann–Whitney của mẫu chi tiết
+Dữ liệu và kết quả: analysis.py, seed 20261104, sample_detail.csv, summary.json.
 
-**Bố cục:** P-value rất lớn bên trái, bảng thống kê ở phải. Ước lượng xác suất và kết luận ở dưới.
+https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html
 
-**Nội dung trên slide**
+## 06 Mẫu chưa đủ bằng chứng về khác biệt
 
-Xấp xỉ chuẩn, hiệu chỉnh liên tục và hiệu chỉnh hạng trùng.
+**Bố cục:** Trang accent cobalt với kết luận và p-value, chữ ivory.
 
-**p = 0,292**
+**Chữ hiển thị**
 
-**Chưa bác bỏ H₀ ở mức 5%.**
+- PHƯƠNG PHÁP THỐNG KÊ DỮ LIỆU
+- KẾT QUẢ MANN–WHITNEY
+- Mẫu chưa đủ bằng chứng / về khác biệt
+- 0,292
+- p-value hai phía
+- U(A) = 910 / U(B) = 690
+- P̂(A > B) = 56,9%
+- Ở mức ý nghĩa 5%. Chưa bác bỏ H₀ không chứng minh hai phương án tương đương.
+- Xấp xỉ chuẩn. Hiệu chỉnh liên tục. Kiểm định hai phía.
 
-| Thống kê | Giá trị |
-|---|---:|
-| Tổng hạng A / B | 1730 / 1510 |
-| U(A) / U(B) | 910 / 690 |
-| trị tuyệt đối z hiệu chỉnh | 1,054 |
-
-P̂(A > B) = 910 / 1600 = 56,9%.
-
-Đây là ước lượng từ mẫu. Mẫu chưa đủ bằng chứng về khác biệt. Chưa bác bỏ H₀ không chứng minh hai phương án tương đương.
-
-**Ghi chú thuyết trình**
+**Ghi chú thuyết trình và nguồn**
 
 Tổng hạng A là 1730 và B là 1510. U_A bằng 1730−820 = 910, U_B bằng 1600−910 = 690. Tại H0, trung bình U bằng 800, phương sai bằng 10800 khi không có hạng trùng. Dùng hiệu chỉnh liên tục 0,5 cho p hai phía được |z| = 1,0537 và p = 0,2920. Không bác bỏ H0 vì p lớn hơn 0,05. Ước lượng xác suất một phiên A có độ trễ lớn hơn một phiên B ngẫu nhiên là U_A/(40×40) = 0,56875. Đây không phải bằng chứng đủ để xác nhận B tốt hơn ở mức 5% trong mẫu chi tiết. Giả thiết cùng dạng trong mô hình cho phép diễn giải theo vị trí, nhưng quyết định kiểm định vẫn dựa trên mẫu.
 
-**Nguồn phương pháp:** [docs.scipy.org](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html).
+Nguồn bài toán: Bộ đề bài tập nhóm Phương pháp thống kê dữ liệu sinh viên, đề 8 trang 9, yêu cầu chung trang 1 và sản phẩm nộp trang 12.
 
-## Slide 7 Welch kiểm định chênh lệch trung bình
+Dữ liệu và kết quả: analysis.py, seed 20261104, sample_detail.csv, summary.json.
 
-**Bố cục:** Ước lượng chênh lệch lớn ở trái, t/df/p ở phải. Minh họa khoảng tin cậy bằng đoạn ngang và điểm ước lượng.
+https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html
 
-**Nội dung trên slide**
+## 07 Chênh lệch trung bình
 
-Welch kiểm định chênh lệch trung bình.
+**Bố cục:** Khoảng tin cậy là hình dữ liệu chính, mốc 0 rõ.
 
-H₀: μA = μB.  
-H₁: μA ≠ μB.
+**Chữ hiển thị**
 
-Chênh lệch trung bình ước lượng A − B = 0,426 ms.
+- PHƯƠNG PHÁP THỐNG KÊ DỮ LIỆU
+- KIỂM ĐỊNH t WELCH
+- Chênh lệch trung bình
+- Khoảng tin cậy 95% chứa 0.
+- 0,426
+- ms
+- t = 0,178 / df = 77,604 / p = 0,859
+- KTC 95%  [−4,349 ; 5,201] ms
+- −6
+- −4
+- −2
+- Chênh lệch A − B (ms). Welch xét trung bình, dùng phương sai ước lượng từ mẫu.
 
-- t = 0,178.
-- df = 77,604.
-- p = 0,859.
+Đoạn KTC từ −4,348619909 đến 5,200927040 ms; điểm ước lượng tại 0,426153566 ms; trục −6 đến 6 ms.
 
-**KTC 95% [−4,349; 5,201] ms chứa 0.**
-
-Welch xét trung bình và dùng phương sai mẫu. Mann–Whitney xét hạng. Cả hai đều chưa phát hiện khác biệt trong mẫu chi tiết này.
-
-**Dữ liệu minh họa KTC**
-
-Trục ngang −6 đến 6 ms, nhãn Chênh lệch trung bình A − B (ms). Đoạn ngang từ −4,348619909 đến 5,200927040, điểm trắng tại 0,426153566 và vạch tham chiếu 0. Không vẽ trục dọc mang ý nghĩa định lượng.
-
-**Ghi chú thuyết trình**
+**Ghi chú thuyết trình và nguồn**
 
 Welch dùng sai số chuẩn căn của s_A²/40 + s_B²/40, với hai phương sai đều ước lượng từ mẫu. Không thay độ lệch chuẩn thật 10 ms của mô hình vào công thức. Sai số chuẩn là 2,3982 ms và bậc tự do Welch–Satterthwaite xấp xỉ 77,6038. P-value hai phía là 0,8594. Khoảng tin cậy 95% cho chênh lệch trung bình A−B chạy từ −4,3486 đến 5,2009 ms. Khoảng chứa 0 nên phù hợp với kết luận chưa bác bỏ. Welch không yêu cầu hai phương sai bằng nhau. Với dữ liệu lệch phải và n=40, xấp xỉ t vẫn cần thận trọng vì đuôi dài; mô phỏng lặp giúp đánh giá khả năng phát hiện trong đúng thiết kế này.
 
-**Nguồn phương pháp:** [docs.scipy.org](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html).
+Nguồn bài toán: Bộ đề bài tập nhóm Phương pháp thống kê dữ liệu sinh viên, đề 8 trang 9, yêu cầu chung trang 1 và sản phẩm nộp trang 12.
 
-## Slide 8 Tỷ lệ phát hiện qua 200 lần mô phỏng
+Dữ liệu và kết quả: analysis.py, seed 20261104, sample_detail.csv, summary.json.
 
-**Bố cục:** Biểu đồ cột tỷ lệ ở trái, bảng đếm và KTC ở phải. Các cột dùng màu A/B theo tông của bộ slide, nhưng tên cột là hai kiểm định.
+https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html
 
-**Nội dung trên slide**
+## 08 Khả năng phát hiện qua 200 lần lặp
 
-Mỗi lần tạo hai mẫu mới và chạy cả hai kiểm định hai phía tại α = 0,05.
+**Bố cục:** Hai thanh ngang tỷ lệ, nhãn trực tiếp 76,5% và 49,5%.
 
-| Kiểm định | Số lần phát hiện | Tỷ lệ phát hiện | KTC Wilson 95% |
-|---|---:|---:|---:|
-| Mann–Whitney | 153 / 200 | 76,5% | 70,2–81,8% |
-| Welch | 99 / 200 | 49,5% | 42,6–56,4% |
+**Chữ hiển thị**
 
-Sai số Monte Carlo: 3,0 và 3,5 điểm phần trăm.
+- PHƯƠNG PHÁP THỐNG KÊ DỮ LIỆU
+- MÔ PHỎNG LẶP
+- Khả năng phát hiện / qua 200 lần lặp
+- Lực kiểm định trong mô hình đề bài. Mỗi lần sinh hai mẫu mới.
+- Mann–Whitney
+- 153 / 200
+- 76,5%
+- KTC Wilson 95%  70,2–81,8%
+- Welch
+- 99 / 200
+- 49,5%
+- KTC Wilson 95%  42,6–56,4%
+- α = 0,05. Sai số Monte Carlo: 3,0 và 3,5 điểm phần trăm. Không phải tỷ lệ bác bỏ sai.
 
-Ước lượng lực kiểm định trong mô hình này, không phải tỷ lệ bác bỏ sai.
+Thanh ngang có tỷ lệ 0,765 và 0,495, số lần phát hiện 153 và 99 trên 200. KTC Wilson và sai số Monte Carlo giữ nguyên kết quả phân tích.
 
-**Dữ liệu biểu đồ cột:** Mann–Whitney = 0,765, Welch = 0,495. Trục dọc từ 0% đến 100%, hiển thị nhãn trên cột. Không nhập 76,5 nếu công cụ đang dùng định dạng phần trăm dựa trên 0–1.
-
-**Ghi chú thuyết trình**
+**Ghi chú thuyết trình và nguồn**
 
 Mann–Whitney phát hiện 153 trong 200 lần, tỷ lệ 76,5%; Welch phát hiện 99 trong 200 lần, tỷ lệ 49,5%. Sai số Monte Carlo lần lượt khoảng 3,00 và 3,54 điểm phần trăm. Khoảng tin cậy Wilson 95% cho tỷ lệ phát hiện lần lượt 70,16–81,84% và 42,65–56,37%. Hai kiểm định chạy trên cùng bộ mẫu trong mỗi lần lặp để so sánh công bằng. Có 98 lần cùng phát hiện, 55 lần chỉ Mann–Whitney phát hiện, 1 lần chỉ Welch phát hiện và 46 lần cùng không phát hiện. Do mô hình thật có chênh lệch vị trí 4 ms, các tỷ lệ bác bỏ phản ánh lực kiểm định, không ước lượng sai lầm loại I. Kết quả không chứng minh Mann–Whitney luôn tốt hơn Welch trong mọi phân phối.
 
-## Slide 9 Kiến thức nền và giới hạn kết luận
+Nguồn bài toán: Bộ đề bài tập nhóm Phương pháp thống kê dữ liệu sinh viên, đề 8 trang 9, yêu cầu chung trang 1 và sản phẩm nộp trang 12.
 
-**Bố cục:** Bảng kiến thức nền ở trên. Phần giải thích thiết kế độc lập và giới hạn ở dưới.
+Dữ liệu và kết quả: analysis.py, seed 20261104, sample_detail.csv, summary.json.
 
-**Nội dung trên slide**
+## 09 Mẫu độc lập và giới hạn rõ ràng
 
-Kết nối kiến thức chương 1–5 với kiểm định phi tham số ở chương 7.
+**Bố cục:** Thiết kế độc lập, vai trò kiến thức chương 1–5 và giới hạn theo hai vùng mở.
 
-| Kiến thức nền | Vai trò trong bài |
-|---|---|
-| Biến và mẫu độc lập | Độ trễ định lượng, hai nhóm phiên khác nhau |
-| Biến ngẫu nhiên và phân phối | Phân phối mũ mô tả độ lệch phải |
-| Thống kê mô tả | Trung bình, trung vị, SD, Q1, Q3 và IQR |
-| Ước lượng và độ không chắc chắn | KTC Welch, SE Monte Carlo, KTC Wilson |
+**Chữ hiển thị**
 
-**Không ghép cặp:** Không có cùng phiên trước–sau. Ghép theo số thứ tự là tùy ý.
+- PHƯƠNG PHÁP THỐNG KÊ DỮ LIỆU
+- ĐIỀU KIỆN VÀ GIỚI HẠN
+- Mẫu độc lập, / giới hạn rõ ràng
+- Ghép Aᵢ với Bᵢ theo thứ tự / sẽ tạo cặp tùy ý.
+- KIẾN THỨC CHƯƠNG 1–5
+- Biến và mẫu
+- Độ trễ định lượng, hai nhóm khác nhau.
+- Phân phối
+- Mũ và độ lệch phải của dữ liệu.
+- Mô tả
+- Trung bình, trung vị, SD và IQR.
+- Ước lượng
+- KTC Welch và sai số mô phỏng.
+- Chỉ cho mô hình này
+- Phân phối mũ cùng độ phân tán. /  / Chưa xét tải mạng, jitter, mất gói. /  / Không suy luận chi phí hoặc năng lượng.
+- Dữ liệu độc lập. Không dùng kiểm định ghép cặp. n = 40 mỗi nhóm, 200 lần lặp.
 
-**Giới hạn áp dụng:** Mô phỏng n = 40, chỉ 200 lần lặp. Chưa có tải mạng, jitter hay mất gói.
-
-**Ghi chú thuyết trình**
+**Ghi chú thuyết trình và nguồn**
 
 Kiến thức chương 1–5 cung cấp cơ sở nhận diện biến, thiết kế mẫu, phân phối xác suất, tóm tắt dữ liệu và ước lượng độ không chắc chắn. Nội dung chính của đề là kiểm định phi tham số, đối chiếu với Welch. Hai nhóm gồm những phiên khác nhau và độc lập, nên không có cặp tự nhiên như cùng phiên trước–sau. Ghép giá trị A_i với B_i theo số thứ tự tạo quan hệ tùy ý. Do đó không dùng t ghép cặp hoặc Wilcoxon hạng có dấu. Kết luận chỉ áp dụng trong mô hình tạo dữ liệu với phân phối mũ cùng scale 10, mức dịch 4 ms và cỡ mẫu 40. Chưa thể suy luận về chi phí định tuyến, năng lượng, độ mất gói, jitter, tải mạng hoặc hiệu năng thực tế.
 
-## Slide 10 Kết luận và phân công nhóm
+Nguồn bài toán: Bộ đề bài tập nhóm Phương pháp thống kê dữ liệu sinh viên, đề 8 trang 9, yêu cầu chung trang 1 và sản phẩm nộp trang 12.
 
-**Bố cục:** Kết luận ở trên, bảng nhóm ở dưới. Ưu tiên đủ tên và MSSV, không thu chữ quá nhỏ.
+Dữ liệu và kết quả: analysis.py, seed 20261104, sample_detail.csv, summary.json.
 
-**Nội dung trên slide**
+## 10 Kết luận và phân công nhóm
 
-Nhóm 8. Giảng viên Vũ Quang Minh.
+**Bố cục:** Trang accent near-black, kết luận trong mô hình và bảng đủ năm thành viên.
 
-**B thấp hơn 4 ms trong mô hình tạo dữ liệu.**
+**Chữ hiển thị**
 
-Mẫu chi tiết chưa đủ bằng chứng khác biệt ở mức 5%. Mô phỏng lặp ghi nhận Mann–Whitney phát hiện thường xuyên hơn.
+- PHƯƠNG PHÁP THỐNG KÊ DỮ LIỆU
+- KẾT LUẬN  /  NHÓM 8
+- Kết luận trong / phạm vi mô hình
+- 4 ms
+- B thấp hơn trong mô hình
+- Ưu tiên B nếu chỉ xét độ trễ của mô hình. / Mẫu chi tiết chưa đủ bằng chứng ở mức 5%.
+- Phân công đề xuất 20% mỗi thành viên. Nhóm xác nhận theo thực tế.
+- THÀNH VIÊN
+- MSSV
+- NHIỆM VỤ ĐỀ XUẤT
+- Phạm Gia Minh
+- B24DCKD057
+- Thiết kế và dữ liệu
+- Phương Bảo Vỹ
+- B24DCKD105
+- Mann–Whitney và bảng hạng
+- Nguyễn Đức Thành
+- B24DCKD085
+- Welch và khoảng tin cậy
+- Phan Nguyễn Trung Khánh
+- B24DCKD041
+- Mô phỏng và trực quan hóa
+- Phùng Quốc Khánh Nam
+- B24DCKD059
+- Báo cáo và trình chiếu
+- Dữ liệu mô phỏng. Phân công là đề xuất cần xác nhận.
 
-Phân công đề xuất 20% mỗi thành viên, nhóm xác nhận theo thực tế.
+**Ghi chú thuyết trình và nguồn**
 
-| Thành viên | MSSV | Nhiệm vụ đề xuất | Đóng góp dự kiến |
+Trong mô hình đề bài, B là phiên bản dịch trái 4 ms của A, vì vậy trung bình và trung vị thật đều thấp hơn 4 ms. Đây là đặc điểm của mô hình dùng để đánh giá phương pháp, không phải tham số được thay vào ước lượng mẫu. Mẫu chi tiết cố định seed chưa cho bằng chứng thống kê đủ mạnh bằng cả Mann–Whitney lẫn Welch. Mô phỏng 200 lần cho thấy Mann–Whitney phát hiện thường xuyên hơn trong thiết kế đang xét. Nếu chọn phương án chỉ theo độ trễ của mô hình này thì ưu tiên B. Để áp dụng thực tế cần dữ liệu đo độc lập, điều kiện mạng rõ ràng và ngưỡng cải thiện có ý nghĩa nghiệp vụ. Bảng phân công là đề xuất phân bổ đều 20%, nhóm cần xác nhận hoặc sửa theo công việc và đóng góp thực tế trước khi nộp.
+
+Nguồn bài toán: Bộ đề bài tập nhóm Phương pháp thống kê dữ liệu sinh viên, đề 8 trang 9, yêu cầu chung trang 1 và sản phẩm nộp trang 12.
+
+Dữ liệu và kết quả: analysis.py, seed 20261104, sample_detail.csv, summary.json.
+
+## Phân công đề xuất đầy đủ
+
+| Thành viên | MSSV | Nhiệm vụ | Dự kiến |
 |---|---|---|---:|
 | Phạm Gia Minh | B24DCKD057 | Thiết kế mô phỏng và quản lý dữ liệu gốc | 20% |
 | Phương Bảo Vỹ | B24DCKD105 | Lập trình Mann–Whitney và kiểm tra bảng hạng | 20% |
@@ -296,14 +363,10 @@ Phân công đề xuất 20% mỗi thành viên, nhóm xác nhận theo thực t
 | Phan Nguyễn Trung Khánh | B24DCKD041 | Mô phỏng 200 lần và trực quan hóa | 20% |
 | Phùng Quốc Khánh Nam | B24DCKD059 | Tổng hợp báo cáo và trình chiếu | 20% |
 
-Nếu không đủ bề rộng cho cột Đóng góp dự kiến, giữ dòng “20% mỗi thành viên” phía trên và ba cột còn lại như bản bố cục tham chiếu. Không trình bày đóng góp đề xuất như xác nhận đã hoàn thành.
+Nhóm xác nhận hoặc chỉnh lại theo đóng góp thực tế trước khi nộp.
 
-**Ghi chú thuyết trình**
+## Nguồn và kiểm tra
 
-Trong mô hình đề bài, B là phiên bản dịch trái 4 ms của A, vì vậy trung bình và trung vị thật đều thấp hơn 4 ms. Đây là đặc điểm của mô hình dùng để đánh giá phương pháp, không phải tham số được thay vào ước lượng mẫu. Mẫu chi tiết cố định seed chưa cho bằng chứng thống kê đủ mạnh bằng cả Mann–Whitney lẫn Welch. Mô phỏng 200 lần cho thấy Mann–Whitney phát hiện thường xuyên hơn trong thiết kế đang xét. Nếu chọn phương án chỉ theo độ trễ của mô hình này thì ưu tiên B. Để áp dụng thực tế cần dữ liệu đo độc lập, điều kiện mạng rõ ràng và ngưỡng cải thiện có ý nghĩa nghiệp vụ. Bảng phân công là đề xuất phân bổ đều 20%, nhóm cần xác nhận hoặc sửa theo công việc và đóng góp thực tế trước khi nộp.
+Đề 8 trang 9; yêu cầu chung trang 1 và sản phẩm nộp trang 12 của tài liệu đề bài. Phương pháp tham khảo [SciPy Mann–Whitney](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html), [SciPy Welch](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html) và [NumPy SeedSequence](https://numpy.org/doc/stable/reference/random/parallel.html).
 
-## Lưu ý khi đưa vào Canva
-
-Giữ đúng các dấu âm của khoảng tin cậy và phân biệt ms với phần trăm. Không biến “chưa bác bỏ” thành “hai phương án như nhau”. Không thay p-value của mẫu chi tiết bằng kết quả của 200 lần mô phỏng. Hạng trong bảng là hạng khi gộp đủ 80 giá trị, không phải hạng riêng của sáu dòng minh họa. Hệ số chuẩn hóa và độ lệch chuẩn dùng trong kiểm định đều ước lượng từ mẫu.
-
-Các số trong ghi chú có độ chính xác cao hơn số trình bày. Việc làm tròn trên slide không thay đổi dữ liệu phân tích. Nền dùng cho nội dung cần giữ tối để chữ trắng và cyan đọc rõ.
+Áp dụng [Taste Skill](https://github.com/Leonxlnx/taste-skill) qua bản thích nghi cục bộ. Không chạy hay tuyên bố đã chạy CLI/Chrome checker của bộ upstream. Việc kiểm tra mã và việc xem ảnh trình duyệt được ghi nhận riêng.

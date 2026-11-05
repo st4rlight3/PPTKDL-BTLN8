@@ -2,14 +2,14 @@
 
 Nhóm 8. Kho mã của nhóm: `PPTKDL-BTLN8`.
 
-**[Mở bài trình chiếu Canva 10 trang](https://canva.link/rcifdyyoaund7yv)** - liên kết công khai chỉ xem, không cần đăng nhập.
+**[Mở bài trình chiếu Canva 10 trang](https://canva.link/501qey52s0wqhti)** - bản thiết kế cuối, liên kết công khai chỉ xem, không cần đăng nhập.
 
 Toàn bộ số liệu là **dữ liệu mô phỏng**, không phải độ trễ đo trên mạng thật.
 
 ## Mở nhanh tệp nộp
 
 - [Báo cáo PDF 12 trang](bao_cao/Bao_cao_De_8_Nhom_8.pdf) và [bản Word chỉnh sửa](bao_cao/Bao_cao_De_8_Nhom_8.docx).
-- [Bài trình chiếu Canva 10 trang](https://canva.link/rcifdyyoaund7yv) và [thông tin truy cập, nguồn số liệu](trinh_chieu/LIEN_KET_CANVA.md).
+- [Bài trình chiếu Canva 10 trang](https://canva.link/501qey52s0wqhti), [bản PDF 10 trang](trinh_chieu/Bai_trinh_chieu_Canva_Nhom_8.pdf) và [thông tin truy cập, nguồn số liệu](trinh_chieu/LIEN_KET_CANVA.md).
 - [Bảng đối chiếu đầy đủ yêu cầu](DOI_CHIEU_YEU_CAU.md) và [phân công dự kiến](phan_cong.csv).
 
 ## Thiết kế và seed
@@ -88,9 +88,14 @@ Học viện Công nghệ Bưu chính Viễn thông, Khoa Viễn thông 1. Giả
 - `bao_cao/Bao_cao_De_8_Nhom_8.pdf`: báo cáo 12 trang để đọc và in.
 - `bao_cao/Bao_cao_De_8_Nhom_8.docx`: bản chỉnh sửa của cùng báo cáo.
 - `trinh_chieu/LIEN_KET_CANVA.md`: liên kết bài trình chiếu Canva 10 trang.
+- `trinh_chieu/Bai_trinh_chieu_Canva_Nhom_8.pdf`: bản PDF 10 trang xuất từ thiết kế Canva cuối.
+- `trinh_chieu/Xem_truoc_trinh_chieu_Nhom_8.jpg`: ảnh xem trước của thiết kế cuối.
 - `trinh_chieu/NOI_DUNG_CANVA.md`: nội dung, ghi chú thuyết trình, nguồn và số liệu biểu đồ.
-- `phan_cong.csv`: phân công và tỷ lệ đóng góp **dự kiến**, có ô để nhóm ghi đóng góp thực tế và minh chứng. Nhóm cần xác nhận trước khi nộp.
+- `trinh_chieu/nguon_canva/`: nguồn HTML nhập Canva (`deck-canva.html` hoặc `deck-canva-assets.zip`), bản xem trước `preview.html` và hướng dẫn `README_NGUON_CANVA.md`. Dựng lại nguồn bằng `python scripts/build_canva_html.py`.
+- `phan_cong.csv`: phân công và tỷ lệ đóng góp **dự kiến 20% mỗi thành viên**, có ô để nhóm ghi đóng góp thực tế và minh chứng. Nhóm cần xác nhận trước khi nộp.
 - `scripts/analysis.py`, dữ liệu, bảng kết quả và biểu đồ: toàn bộ phân tích có thể chạy lại.
+
+Trình chiếu cuối áp dụng Taste Skill adaptation với nền ngà, chữ màu mực, nhấn cobalt và cam. Histogram, biểu đồ hộp, dải hạng, khoảng tin cậy và biểu đồ tỷ lệ được dựng bằng các đối tượng vector từ dữ liệu phân tích. [Nguồn và cách dựng lại](trinh_chieu/nguon_canva/README_NGUON_CANVA.md) đi kèm bộ nộp.
 
 Mẫu chi tiết chưa có đủ bằng chứng khác biệt: Mann-Whitney p = 0,292037; Welch p = 0,859422. KTC 95% cho trung bình A trừ B là [-4,348620; 5,200927] ms. Trong 200 lần lặp mới, Mann-Whitney phát hiện 153/200 (76,5%) và Welch 99/200 (49,5%). Các kết quả này phân biệt với tính chất lý thuyết B dịch trái 4 ms của mô hình sinh.
 

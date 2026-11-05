@@ -1,6 +1,8 @@
 # Bài trình chiếu Canva - Đề 8, Nhóm 8
 
-**[Mở bài trình chiếu Canva 10 trang](https://canva.link/rcifdyyoaund7yv)**
+**[Mở bài trình chiếu Canva 10 trang](https://canva.link/501qey52s0wqhti)**
+
+[Liên kết Canva đầy đủ, chỉ xem](https://www.canva.com/design/DAHaA3KPt4c/BppV63r11zDIIqbR95-p5w/view) · [Tải bản PDF 10 trang](Bai_trinh_chieu_Canva_Nhom_8.pdf) · [Xem ảnh tổng quan](Xem_truoc_trinh_chieu_Nhom_8.jpg).
 
 - Học viện Công nghệ Bưu chính Viễn thông, Khoa Viễn thông 1.
 - Học phần: Phương pháp thống kê dữ liệu.
@@ -8,6 +10,17 @@
 - Nhóm 8. Giảng viên: **Vũ Quang Minh**.
 - Bài trình chiếu gồm đúng **10 trang**, khổ 16:9.
 - Quyền truy cập: **chỉ xem công khai**, không cần đăng nhập để mở; liên kết này không cấp quyền chỉnh sửa.
+
+## Thiết kế cuối và nguồn chỉnh sửa
+
+Bản cuối áp dụng Taste Skill adaptation: nền ngà, chữ màu mực, nhấn cobalt và cam; heading Times New Roman, nội dung và số liệu Arial. Các biểu đồ là đối tượng vector dựng từ số liệu phân tích.
+
+- [Nguồn HTML để nhập Canva](nguon_canva/deck-canva.html) hoặc [gói nguồn ZIP](nguon_canva/deck-canva-assets.zip).
+- [Bản HTML xem trước](nguon_canva/preview.html) dùng để xem trên trình duyệt.
+- [Hướng dẫn nguồn và cách dựng lại](nguon_canva/README_NGUON_CANVA.md). Chạy `python scripts/build_canva_html.py` từ thư mục gốc kho để dựng lại nguồn.
+- [Nội dung và ghi chú thuyết trình](NOI_DUNG_CANVA.md) tương ứng với bản cuối.
+
+Phân công trong trang 10 là **đề xuất 20% mỗi thành viên**, cần nhóm xác nhận theo đóng góp thực tế.
 
 ## Nội dung và nguồn số liệu
 
