@@ -33,7 +33,7 @@ Kết luận mục 9 phân biệt mẫu chưa đủ bằng chứng với tính c
 | Báo cáo 8–12 trang | bao_cao/Bao_cao_De_8_Nhom_8.pdf, bản chỉnh sửa .docx, 12 trang. |
 | Dữ liệu mẫu và bảng mô phỏng | data/ và results/, có đủ 200 lần. |
 | Mã, hướng dẫn chạy và seed | scripts/analysis.py, requirements.txt, README.md. |
-| Trình chiếu 8–10 trang | trinh_chieu/Bai_trinh_chieu_De_8_Nhom_8.pptx, 10 trang. |
+| Trình chiếu 8–10 trang | Bài trình chiếu Canva 10 trang, liên kết trong trinh_chieu/LIEN_KET_CANVA.md. |
 | Phân công và đóng góp từng người | Báo cáo mục 11.1 và phan_cong.csv. Tỷ lệ là dự kiến, nhóm cần xác nhận thực tế. |
 
 Mục 2.1 của báo cáo chỉ rõ kiến thức nền chương 1–5 và vai trò đối với kiểm định ở chương 7. Tài liệu giao bài không kèm mục lục giáo trình, nên báo cáo không tự gán các tên nội dung cho từng chương riêng lẻ.
