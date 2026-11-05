@@ -2,12 +2,14 @@
 
 Nhóm 8. Kho mã của nhóm: `PPTKDL-BTLN8`.
 
+**[Mở bài trình chiếu Canva 10 trang](https://canva.link/rcifdyyoaund7yv)** - liên kết công khai chỉ xem, không cần đăng nhập.
+
 Toàn bộ số liệu là **dữ liệu mô phỏng**, không phải độ trễ đo trên mạng thật.
 
 ## Mở nhanh tệp nộp
 
 - [Báo cáo PDF 12 trang](bao_cao/Bao_cao_De_8_Nhom_8.pdf) và [bản Word chỉnh sửa](bao_cao/Bao_cao_De_8_Nhom_8.docx).
-- [Bài trình chiếu 10 trang](trinh_chieu/Bai_trinh_chieu_De_8_Nhom_8.pptx).
+- [Bài trình chiếu Canva 10 trang](https://canva.link/rcifdyyoaund7yv) và [thông tin truy cập, nguồn số liệu](trinh_chieu/LIEN_KET_CANVA.md).
 - [Bảng đối chiếu đầy đủ yêu cầu](DOI_CHIEU_YEU_CAU.md) và [phân công dự kiến](phan_cong.csv).
 
 ## Thiết kế và seed
@@ -85,7 +87,8 @@ Học viện Công nghệ Bưu chính Viễn thông, Khoa Viễn thông 1. Giả
 
 - `bao_cao/Bao_cao_De_8_Nhom_8.pdf`: báo cáo 12 trang để đọc và in.
 - `bao_cao/Bao_cao_De_8_Nhom_8.docx`: bản chỉnh sửa của cùng báo cáo.
-- `trinh_chieu/Bai_trinh_chieu_De_8_Nhom_8.pptx`: bài trình chiếu 10 trang, biểu đồ và chữ chỉnh sửa được.
+- `trinh_chieu/LIEN_KET_CANVA.md`: liên kết bài trình chiếu Canva 10 trang.
+- `trinh_chieu/NOI_DUNG_CANVA.md`: nội dung, ghi chú thuyết trình, nguồn và số liệu biểu đồ.
 - `phan_cong.csv`: phân công và tỷ lệ đóng góp **dự kiến**, có ô để nhóm ghi đóng góp thực tế và minh chứng. Nhóm cần xác nhận trước khi nộp.
 - `scripts/analysis.py`, dữ liệu, bảng kết quả và biểu đồ: toàn bộ phân tích có thể chạy lại.
 
